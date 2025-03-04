@@ -33,18 +33,25 @@ cd go-dispcalc1
 go run ./cmd/agent/...
 ```
 - Примеры запросов
+- 
 *запросы отправляются в третье окно git bash
+
 Добавить новое выражение на вычисление
 ```bash
 curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": "2+2*2"}'
 ```
+
 Ответ (201):
+
 ```
 json
 {"id": "1"}
 ```
+
 (Где "1" — некий ID выражения.)
+
 -- Ошибка 422 (некорректное выражение):
+
 Отправка запроса с пустым выражением, что не считается валидным.
 ```
 curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": ""}'
