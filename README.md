@@ -16,7 +16,7 @@
 Требуется Go 1.18+ (или выше).
 
 ```bash
-git clone https://github.com/egocentri/go-dispcalc1.git
+git clone https://github.com/horhhe/disperser-calculator.git
 cd go-dispcalc1
 ```
 
