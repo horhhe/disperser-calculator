@@ -1,4 +1,4 @@
-module github.com/egocentri/go-dispcalc1
+module github.com/horhhe/disperser-calculator
 
 go 1.23.3
 
