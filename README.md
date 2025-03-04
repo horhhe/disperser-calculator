@@ -17,7 +17,7 @@
 
 ```bash
 git clone https://github.com/horhhe/disperser-calculator.git
-cd go-dispcalc1
+cd disperser-calculator
 ```
 
 -- Запуск Оркестратора
