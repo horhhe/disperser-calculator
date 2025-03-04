@@ -11,7 +11,7 @@
    - Вычисляет задачу (использует парсер арифметических выражений).
    - Отправляет результат обратно на `POST /internal/task`.
 
-## Установка и запуск
+- Установка и запуск
 
 Требуется Go 1.18+ (или выше).
 
@@ -20,63 +20,40 @@ git clone https://github.com/egocentri/go-dispcalc1.git
 cd go-dispcalc1
 ```
 
-#### Запуск Оркестратора
+-- Запуск Оркестратора
 
 ```bash
 go run ./cmd/orchestrator/...
 ```
-По умолчанию порт :8080. Можно переопределить через переменную окружения:
-
-```bash
-export ORCHESTRATOR_PORT=9000
-go run ./cmd/orchestrator/...
-```
-#### Запуск Агента
+-- Запуск Агента
 В другом окне терминала запустите:
 
 ```bash
+cd go-dispcalc1
 go run ./cmd/agent/...
 ```
-Агент по умолчанию подключается к ```http://localhost:8080```. Можно переопределить:
-
-```
-export ORCHESTRATOR_URL="http://localhost:9000"
-export COMPUTING_POWER=3
-go run ./cmd/agent/...
-```
-## Примеры запросов
+- Примеры запросов
 Добавить новое выражение на вычисление
 ```bash
-curl --location 'http://localhost:8080/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data '{
-  "expression": "2+2*2"
-}'
+curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": "2+2*2"}'
 ```
 Ответ (201):
 ```
 json
-
-{
-  "id": "1"
-}
+{"id": "1"}
 ```
 (Где "1" — некий ID выражения.)
-#### Ошибка 422 (некорректное выражение):
+-- Ошибка 422 (некорректное выражение):
 Отправка запроса с пустым выражением, что не считается валидным.
 ```
-curl --location 'http://localhost:8080/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data '{"expression": ""}'
+curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": ""}'
 ```
-#### Ошибка 500 (кодовое слово trigger500):
+-- Ошибка 500 (кодовое слово trigger500):
 Отправка запроса с выражением, равным ```"trigger500"```, что инициирует панику в сервере и приводит к ошибке 500.
 ```
-curl --location 'http://localhost:8080/api/v1/calculate' \
---header 'Content-Type: application/json' \
---data '{"expression": "trigger500"}'
+curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type: application/json' --data '{"expression": "trigger500"}'
 ```
-#### Получить список всех выражений
+-- Получить список всех выражений
 
 
  ```curl --location 'http://localhost:8080/api/v1/expressions'```
@@ -97,7 +74,7 @@ curl --location 'http://localhost:8080/api/v1/calculate' \
 }
 ```
 
-### Получить выражение по ID
+- Получить выражение по ID
 ```curl --location 'http://localhost:8080/api/v1/expressions/1'```
 Ответ (200):
 ```
