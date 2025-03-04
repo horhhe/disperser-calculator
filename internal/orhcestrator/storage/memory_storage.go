@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"sync"
-
 	"github.com/horhhe/disperser-calculator/internal/models"
 )
 
