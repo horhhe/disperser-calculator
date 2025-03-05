@@ -29,7 +29,7 @@ go run ./cmd/orchestrator/...
 В другом окне терминала запустите:
 
 ```bash
-cd go-dispcalc1
+cd disperser-calculator
 go run ./cmd/agent/...
 ```
 - Примеры запросов
