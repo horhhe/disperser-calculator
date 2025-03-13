@@ -104,6 +104,7 @@ curl --location 'http://localhost:8080/api/v1/calculate' --header 'Content-Type:
 
 ## Запуск тестов
 ```bash
+go get -t github.com/horhhe/disperser-calculator/test
 go test ./...
 ```
 Будут запущены все тесты из пакета test, а также тесты из других подпакетов (при наличии).
